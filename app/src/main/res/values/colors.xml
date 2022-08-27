@@ -8,4 +8,19 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#808080</color>
+
+
+    <color name="BlueGray">#98AFC7</color>
+    <color name="Light_Purple_Blue">#728FCE</color>
+    <color name="Lavender_Blue">#E3E4FA</color>
+    <color name="Bright_Cyan">#0AFFFF</color>
+    <color name="Emerald">#50C878</color>
+    <color name="Olive">#808000</color>
+    <color name="Organic_Brown">#E3F9A6</color>
+    <color name="Bisque">#FFE4C4</color>
+    <color name="Orange">#FFA500</color>
+    <color name="Pastel_Red">#F67280</color>
+
+
+
 </resources>

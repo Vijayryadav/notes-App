@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -24,6 +25,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class notesactivity extends AppCompatActivity {
 
@@ -74,8 +79,20 @@ public class notesactivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull NoteViewHolder noteViewHolder, int position, @NonNull firebasemodel model) {
 
+                int colorcode=getRandomcolom();
+                noteViewHolder.mnote.setBackgroundColor(noteViewHolder.itemView.getResources().getColor(colorcode,null));
                 noteViewHolder.notetitle.setText(model.getTitle());
                 noteViewHolder.notecontent.setText(model.getContent());
+
+                // for every note have different  color
+                noteViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // we have to open note detail activity
+
+                        Toast.makeText(getApplicationContext(),"This is clicked ",Toast .LENGTH_SHORT).show(); 
+                    }
+                });
 
 
             }
@@ -148,6 +165,30 @@ public class notesactivity extends AppCompatActivity {
         {
             noteAdapter.startListening();
         }
+    }
+
+    //background different color of notes
+    private  int getRandomcolom()
+    {
+        List<Integer> colorcode=new ArrayList<>();
+        colorcode.add(R.color.grey);
+        colorcode.add(R.color.Light_Purple_Blue);
+        colorcode.add(R.color.Lavender_Blue);
+        colorcode.add(R.color.Bright_Cyan);
+        colorcode.add(R.color.Emerald);
+        colorcode.add(R.color.Olive);
+        colorcode.add(R.color.Organic_Brown);
+        colorcode.add(R.color.Bisque);
+        colorcode.add(R.color.Orange);
+        colorcode.add(R.color.Pastel_Red);
+
+        Random random=new Random();
+        int number=random.nextInt(colorcode.size());
+        return colorcode.get(number);
+
+
+
+
     }
 
 }
